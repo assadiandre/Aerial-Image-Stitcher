@@ -1,0 +1,28 @@
+//
+//  PrefixHeader.pch
+//  SiteScan
+//
+//  Created by Andre on 7/29/19.
+//  Copyright © 2019 3d Robotics. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __cplusplus
+    #include <opencv2/stitching/detail/blenders.hpp>
+    #include <opencv2/stitching/detail/seam_finders.hpp>
+    #include <opencv2/stitching/detail/util.hpp>
+    #include "opencv2/calib3d/calib3d.hpp"
+    #include "opencv2/imgproc.hpp"
+    #include "opencv2/imgcodecs.hpp"
+    #import <opencv2/xfeatures2d.hpp>
+    #import <opencv2/xfeatures2d/nonfree.hpp>
+#endif
+
+#endif /* PrefixHeader_pch */
+
+
