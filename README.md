@@ -9,6 +9,9 @@ The stitcher accepts images at any resolution (it will automatically resize), ho
 
 - [Sensefly Data Sets](https://www.sensefly.com/education/datasets/?dataset=1503)
 - [Dronemapper Data Sets](https://dronemapper.com/sample_data/)
+- [Custom DJI Data Sets](https://google.com)
+
+Once downloaded, add the data JPG data sets to `Aerial-Image-Stitcher/Images`. In `StitcherViewController.swift` specify the dataset path, then run the project!
 
 
 
