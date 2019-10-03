@@ -16,6 +16,7 @@ Once downloaded, add the JPG image folder to `Aerial-Image-Stitcher/Images`. In 
 ## Results:
 
 ![alt text](https://i.imgur.com/wr1zosN.png)
+
 *Data set of 45 images composited under ~40 seconds on Macbook Pro Iphone Simulator*
 
 ## Sources: 
