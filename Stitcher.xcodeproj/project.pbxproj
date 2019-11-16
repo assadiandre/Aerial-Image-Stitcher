@@ -19,8 +19,8 @@
 		65BB2F6323430EF10000E58D /* Stitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB2F6223430EF10000E58D /* Stitcher.swift */; };
 		65BB31AC23430F660000E58D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BB31AB23430F660000E58D /* opencv2.framework */; };
 		65BB31AF2343104F0000E58D /* StitcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB31AD2343104E0000E58D /* StitcherViewController.swift */; };
-		65BB31B02343104F0000E58D /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB31AE2343104E0000E58D /* HelperFunctions.swift */; };
 		65BB31B2234313780000E58D /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 65BB31B1234313780000E58D /* Images */; };
+		65E6C7D7237FD35400098479 /* StitcherUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6C7D6237FD35400098479 /* StitcherUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +62,8 @@
 		65BB2F6223430EF10000E58D /* Stitcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stitcher.swift; sourceTree = "<group>"; };
 		65BB31AB23430F660000E58D /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		65BB31AD2343104E0000E58D /* StitcherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StitcherViewController.swift; sourceTree = "<group>"; };
-		65BB31AE2343104E0000E58D /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		65BB31B1234313780000E58D /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		65E6C7D6237FD35400098479 /* StitcherUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StitcherUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				65BB2F3123430E910000E58D /* AppDelegate.swift */,
-				65BB31AE2343104E0000E58D /* HelperFunctions.swift */,
 				65BB31AD2343104E0000E58D /* StitcherViewController.swift */,
 				65BB2F3523430E910000E58D /* Main.storyboard */,
 				65BB2F3B23430E930000E58D /* Assets.xcassets */,
@@ -123,6 +122,7 @@
 			children = (
 				65BB2F6423430F150000E58D /* OpenCV */,
 				65BB2F5923430EDA0000E58D /* Algorithm */,
+				65E6C7D6237FD35400098479 /* StitcherUtils.swift */,
 				65BB2F6223430EF10000E58D /* Stitcher.swift */,
 				65BB2F4F23430EC40000E58D /* Info.plist */,
 			);
@@ -264,7 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65BB31B02343104F0000E58D /* HelperFunctions.swift in Sources */,
 				65BB31AF2343104F0000E58D /* StitcherViewController.swift in Sources */,
 				65BB2F3223430E910000E58D /* AppDelegate.swift in Sources */,
 			);
@@ -275,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65BB2F5E23430EDA0000E58D /* CVStitcher.mm in Sources */,
+				65E6C7D7237FD35400098479 /* StitcherUtils.swift in Sources */,
 				65BB2F6323430EF10000E58D /* Stitcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

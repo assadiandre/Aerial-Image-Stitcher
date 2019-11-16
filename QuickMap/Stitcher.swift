@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import UIKit
 
 public class Stitcher {
     
@@ -16,21 +17,62 @@ public class Stitcher {
     private var numberOfImages: Int
     private var allGPS: [CGPoint]
     private var stitcherRunning: Bool
+    private var fullDataSet: Bool
+    private var stitchSize: CGSize
+    private var loopStride:(from:Int,to:Int,by:Int)
+    private var imagePaths:[String]
+    
     public typealias StitcherCornerPoints = (topLeft: CLLocationCoordinate2D, bottomLeft: CLLocationCoordinate2D, bottomRight: CLLocationCoordinate2D, topRight: CLLocationCoordinate2D)
     
-    public init() {
+    public init(path:String,loopStride:(from:Int,to:Int,by:Int)=(from:0,to:0,by:0),prefferedImageWidth:CGFloat = 540) {
         self.openCVStitcher = CVStitcher()
         self.index = 0
         self.numberOfImages = 0
         self.stitcherRunning = true
         self.allGPS = []
+        self.fullDataSet = false
+        self.loopStride = loopStride
+        self.stitchSize = CGSize(width:0,height:0)
+        self.imagePaths = StitcherUtils.getAllImagePaths(imagePath:path)
+        guard let stitchSize = StitcherUtils.getPreferredImageSize(imagePath: path, preferredWidth: prefferedImageWidth) else {
+            print("ERROR: Problem Loading Data Set")
+            return
+        }
+        self.stitchSize = stitchSize
+        if loopStride == (from:0,to:0,by:0){
+            fullDataSet = true
+        }
     }
     deinit {
         openCVStitcher.deconstruct()
     }
     
+    public func run(completion: @escaping (_ result:UIImage,_ coordinates:StitcherCornerPoints) -> Void){
+        DispatchQueue.global(qos: .background).async {
+            if (self.fullDataSet) {
+                self.loopStride = (from:0,to:self.imagePaths.count - 1,by:1)
+            }
+            self.numberOfImages = Int( (self.loopStride.to - self.loopStride.from ) / self.loopStride.by )
+            for i in stride(from:self.loopStride.from, to: self.loopStride.to, by: self.loopStride.by) {
+                let imagePath = self.imagePaths[i]
+                let resizedImage = StitcherUtils.getImage(imagePath: imagePath).resize(targetSize:self.stitchSize)
+                let imageLocation = StitcherUtils.locationForImage( URL(fileURLWithPath: imagePath) )!
+                self.feed( image: resizedImage, location: imageLocation )
+            }
+            DispatchQueue.main.async {
+                if let gpsCorners = self.getGPSCorners() {
+                    completion(self.getStoredImage(), gpsCorners)
+                }
+            }
+        }
+    }
+    
     public func setNumberOfImages(numberOfImages: Int) {
         self.numberOfImages = numberOfImages
+    }
+    
+    public func getNumberOfImages() -> Int {
+        return self.numberOfImages
     }
 
     public func getStitcherRunning() -> Bool {

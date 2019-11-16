@@ -1,9 +1,9 @@
 //
-//  QuickMapTestHelperFunctions.swift
-//  QuickMapTestApp
+//  StitcherUtils.swift
+//  Quick Map
 //
 //  Created by Andre on 7/3/19.
-//  Copyright © 2019 3DRobotics. All rights reserved.
+//  Copyright © 2019 3d Robotics. All rights reserved.
 //
 
 import Foundation
@@ -18,7 +18,8 @@ extension UIImage {
         }
     }
 }
-class Utils {
+
+class StitcherUtils {
     
     static func getPreferredImageSize(imagePath:String, preferredWidth:CGFloat) -> CGSize? {
         /** All images are stored in the Images folder, and are loaded through this method  */
@@ -40,7 +41,7 @@ class Utils {
         return nil
     }
     
-    static func configureImageData(imagePath:String ) -> [String] {
+    static func getAllImagePaths(imagePath:String ) -> [String] {
         var allImagePaths:[String] = []
         /** All images are stored in the Images folder, and are loaded through this method  */
         if let path = Bundle.main.resourcePath {
@@ -57,8 +58,6 @@ class Utils {
                     
                 }
                 allImagePaths = allImagePaths.sorted{$0.localizedStandardCompare($1) == .orderedAscending}
-                
-                
             } catch let error  {
                 print(error)
             }
@@ -101,13 +100,11 @@ class Utils {
             print("Unable to determine location for image at \(url). Could not create image source.")
             return nil
         }
-        
         let propertyOptions: [String: AnyObject] = [kCGImageSourceShouldCache as String: NSNumber(value: false as Bool)]
         guard let properties = CGImageSourceCopyPropertiesAtIndex(source, 0, propertyOptions as CFDictionary?) as NSDictionary? else {
             print("Unable to determine location for image at \(url). Could not get properties from image.")
             return nil
         }
-        
         guard let gps = properties[kCGImagePropertyGPSDictionary as String] as? NSDictionary,
             let latitudeNumber = gps[kCGImagePropertyGPSLatitude as String] as? NSNumber,
             let latitudeRef = gps[kCGImagePropertyGPSLatitudeRef as String] as? String,
@@ -118,10 +115,6 @@ class Utils {
         }
         let latitude = latitudeNumber.doubleValue * (latitudeRef == "N" ? 1 : -1)
         let longitude = longitudeNumber.doubleValue * (longitudeRef == "E" ? 1 : -1)
-        
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
-    
-    
-    
 }
