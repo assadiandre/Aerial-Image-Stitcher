@@ -1,5 +1,6 @@
 # Aerial-Image-Stitcher
-An algorithm built to stitch drone aerial imagery. The program runs locally on iOS (written in Swift, Objective C++) and is built off of the OpenCV framework. It produces accurately geo-referenced maps. 
+An algorithm built to stitch drone aerial imagery coined "QuickMap". The program runs locally on iOS (written in Swift, Objective C++). QuickMap is a feature I worked on in the summer of 2018 & 2019 at 3DR which is currently integrated into BETA SiteScan. The algorithm itself was built using OpenCV and C++. QuickMap uses the SIFT descriptor algorithm to localize keypoints and generate affine warp transformations that neatly align images. It uses GPS points to fill in missing images and uses multi-image referencing to reduce accumulated error. Once finished stitching, it blends the result and finds an appropriate geographical transformation to display it on a map. 
+
 
 ## Installation of Libraries 
 It's recommended to use the latest version of OpenCV (4.1.1) with the contribution modules. You can download it [here](https://www.dropbox.com/s/m8yxpqen3m1m4m5/opencv2.framework.zip?dl=0). Alternatively, you can build it yourself, however the former is much easier. Once downloaded, add it to `Aerial-Image-Stitcher/QuickMap/OpenCV`
