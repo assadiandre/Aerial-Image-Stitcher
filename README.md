@@ -5,6 +5,8 @@ An algorithm built to stitch drone aerial imagery coined "QuickMap". The program
 ## Installation of Libraries 
 It's recommended to use the latest version of OpenCV (4.1.1) with the contribution modules. You can download it [here](https://www.dropbox.com/s/m8yxpqen3m1m4m5/opencv2.framework.zip?dl=0). Alternatively, you can build it yourself, however the former is much easier. Once downloaded, add it to `Aerial-Image-Stitcher/QuickMap/OpenCV`
 
+GPS Points are returned upon generation of the map. To display, I suggest using [MapBox via Cocoapods](https://cocoapods.org/pods/Mapbox-iOS-SDK) a developer access key must be added to your info.plist configuration to work properly. You can then display the image as a raster overlay.  
+
 ## Downloading Data Sets
 The stitcher accepts images at any resolution (it will automatically resize), however there must be GPS encoded in the exif data. It's highly recommended that images are shot 150ft above with minimal distortion and 30-80% overlap. Some good data sets to test: 
 
