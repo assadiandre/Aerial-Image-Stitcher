@@ -15,7 +15,7 @@ The stitcher accepts images at any resolution (it will automatically resize), ho
 Once downloaded, add the JPG image folder to `Aerial-Image-Stitcher/Images`. In `StitcherViewController.swift` specify the dataset path, then build. 
 
 ## Results:
-Please view results [here](https://google.com)
+[Museo Ambar](https://i.ibb.co/sPcPst3/final-Image.png)
 
 ## Sources: 
 The stitcher was heavily inspired by [A Real-time Stitching Algorithm for UAV Aerial Images](https://www.atlantis-press.com/proceedings/iccsee-13/4836) by Peng Xiong, Xianpeng Liu, Chao Gao, Zan Zhou, Chunxiao Gao, and Qiongxin Liu. Multiple image referencing or "predicted region matching" is a key technique integrated in the algorithm that increases  geographical accuracy and reduces accumulated error. 
