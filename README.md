@@ -16,6 +16,7 @@ Once downloaded, add the JPG image folder to `Aerial-Image-Stitcher/Images`. In 
 
 ## Results:
 ![Museo Ambar](https://i.ibb.co/sPcPst3/final-Image.png)
+
 *Museo Ambar data set - 54 Images shot ~200ft altitude.*
 
 ## Sources: 
